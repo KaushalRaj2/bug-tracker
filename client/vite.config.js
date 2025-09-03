@@ -23,8 +23,6 @@ export default defineConfig({
         manualChunks: {
           vendor: ['react', 'react-dom'],
           router: ['react-router-dom'],
-          ui: ['@headlessui/react', '@heroicons/react', 'framer-motion'],
-          charts: ['chart.js', 'react-chartjs-2', 'recharts'],
           utils: ['axios', 'date-fns', 'clsx']
         }
       }
@@ -34,9 +32,9 @@ export default defineConfig({
     port: 3000,
     proxy: {
       '/api': {
-        target: 'http://localhost:5000',
+        target: 'https://bug-tracker-1d6m.onrender.com',  // Use your deployed backend
         changeOrigin: true,
-        secure: false,
+        secure: true,
       }
     }
   },
