@@ -1,14 +1,12 @@
-import { defineConfig, searchForWorkspaceRoot } from 'vite'
+import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
   server: {
     fs: {
-      allow: [
-        searchForWorkspaceRoot(process.cwd()),
-        '.' // only current dir
-      ]
+      // only allow serving files from the client folder
+      allow: ['.']
     }
   },
   build: {
