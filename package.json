@@ -1,0 +1,19 @@
+{
+  "name": "bug-tracker-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Bug Tracker Full Stack Application",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "install:client": "cd client && npm install --legacy-peer-deps",
+    "install:server": "cd server && npm install",
+    "build:client": "cd client && npm run build",
+    "start:server": "cd server && npm start"
+  },
+  "keywords": ["bug-tracker", "monorepo", "react", "nodejs"],
+  "author": "Rajeev Kumar Kaushal",
+  "license": "MIT"
+}
