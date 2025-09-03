@@ -13,8 +13,25 @@ export default defineConfig({
       '@utils': path.resolve(__dirname, './src/utils')
     }
   },
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+    minify: 'terser',
+    sourcemap: false,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          router: ['react-router-dom'],
+          ui: ['@headlessui/react', '@heroicons/react', 'framer-motion'],
+          charts: ['chart.js', 'react-chartjs-2', 'recharts'],
+          utils: ['axios', 'date-fns', 'clsx']
+        }
+      }
+    }
+  },
   server: {
-    port:3000,
+    port: 3000,
     proxy: {
       '/api': {
         target: 'http://localhost:5000',
@@ -22,5 +39,9 @@ export default defineConfig({
         secure: false,
       }
     }
+  },
+  preview: {
+    port: 4173,
+    host: true
   }
 })
