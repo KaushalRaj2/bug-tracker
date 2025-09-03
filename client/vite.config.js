@@ -1,21 +1,21 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import { fileURLToPath, URL } from 'node:url'
 
 export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      '@': '/src',
-      '@components': '/src/components',
-      '@pages': '/src/pages',
-      '@services': '/src/services',
-      '@utils': '/src/utils'
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+      '@components': fileURLToPath(new URL('./src/components', import.meta.url)),
+      '@pages': fileURLToPath(new URL('./src/pages', import.meta.url)),
+      '@services': fileURLToPath(new URL('./src/services', import.meta.url)),
+      '@utils': fileURLToPath(new URL('./src/utils', import.meta.url))
     }
   },
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
-    minify: 'terser',
     sourcemap: false,
     rollupOptions: {
       output: {
@@ -24,16 +24,6 @@ export default defineConfig({
           router: ['react-router-dom'],
           utils: ['axios', 'date-fns', 'clsx']
         }
-      }
-    }
-  },
-  server: {
-    port: 3000,
-    proxy: {
-      '/api': {
-        target: 'https://bug-tracker-1d6m.onrender.com',
-        changeOrigin: true,
-        secure: true,
       }
     }
   }
