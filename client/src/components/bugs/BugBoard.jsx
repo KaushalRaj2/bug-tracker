@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd';
+
 import { PlusIcon, BugAntIcon } from '@heroicons/react/24/outline';
 import BugCard from './BugCard';
 import Button from '../ui/Button';
