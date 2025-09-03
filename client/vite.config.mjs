@@ -7,12 +7,8 @@ export default defineConfig({
   server: {
     fs: {
       allow: [
-        // Search up for workspace root
         searchForWorkspaceRoot(process.cwd()),
-        // Allow serving files from parent directory
-        '..',
-        // Allow serving files from current directory
-        '.'
+        '.' // only current dir
       ]
     }
   },
