@@ -1,5 +1,18 @@
 import React, { useState, useMemo } from 'react';
-import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd';
+import {
+  DndContext,
+  closestCenter,
+  KeyboardSensor,
+  PointerSensor,
+  useSensor,
+  useSensors,
+} from '@dnd-kit/core';
+import {
+  arrayMove,
+  SortableContext,
+  sortableKeyboardCoordinates,
+  verticalListSortingStrategy,
+} from '@dnd-kit/sortable';
 
 import { PlusIcon, BugAntIcon } from '@heroicons/react/24/outline';
 import BugCard from './BugCard';
