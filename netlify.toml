@@ -2,3 +2,12 @@
   base = "client"
   command = "npm install --legacy-peer-deps && npm run build"
   publish = "dist"
+
+[build.environment]
+  VITE_API_URL = "https://bug-tracker-1d6m.onrender.com" # change to your actual backend URL
+  NPM_FLAGS = "--legacy-peer-deps"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
