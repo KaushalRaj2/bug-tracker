@@ -1,0 +1,508 @@
+/* Component-specific styles that extend Tailwind */
+
+
+
+/* Toast notifications */
+.toast-container {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.toast {
+  @apply bg-white dark:bg-gray-800 shadow-lg rounded-lg border border-gray-200 dark:border-gray-700 p-4 mb-3 animate-slide-down;
+  pointer-events: auto;
+  min-width: 300px;
+  max-width: 500px;
+}
+
+.toast.success {
+  @apply border-l-4 border-l-green-500 dark:border-l-green-400;
+}
+
+.toast.error {
+  @apply border-l-4 border-l-red-500 dark:border-l-red-400;
+}
+
+.toast.warning {
+  @apply border-l-4 border-l-yellow-500 dark:border-l-yellow-400;
+}
+
+.toast.info {
+  @apply border-l-4 border-l-blue-500 dark:border-l-blue-400;
+}
+
+/* Toast text colors */
+.toast .toast-title {
+  @apply text-gray-900 dark:text-white font-semibold;
+}
+
+.toast .toast-message {
+  @apply text-gray-600 dark:text-gray-300;
+}
+
+/* Modal styles */
+.modal-backdrop {
+  @apply fixed inset-0 bg-black bg-opacity-50 dark:bg-opacity-70 z-40 animate-fade-in;
+}
+
+.modal-panel {
+  @apply animate-slide-up bg-white dark:bg-gray-800 text-gray-900 dark:text-white;
+}
+
+.modal-title {
+  @apply text-lg font-semibold text-gray-900 dark:text-white;
+}
+
+.modal-content {
+  @apply text-gray-600 dark:text-gray-300;
+}
+
+/* Dropdown styles */
+.dropdown-menu {
+  @apply animate-slide-down origin-top-right bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-lg;
+}
+
+.dropdown-item {
+  @apply px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer;
+}
+
+.dropdown-item.active {
+  @apply bg-blue-50 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300;
+}
+
+/* Loading states */
+.skeleton {
+  @apply animate-pulse bg-gray-200 dark:bg-gray-700 rounded;
+}
+
+.skeleton-text {
+  @apply h-4 bg-gray-200 dark:bg-gray-700 rounded;
+}
+
+.skeleton-circle {
+  @apply rounded-full bg-gray-200 dark:bg-gray-700;
+}
+
+/* Button loading state */
+.btn-loading {
+  position: relative;
+  color: transparent !important;
+}
+
+.btn-loading::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 50%;
+  left: 50%;
+  margin-left: -8px;
+  margin-top: -8px;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 0.8s linear infinite;
+}
+
+/* Form styles */
+.form-group {
+  @apply space-y-1;
+}
+
+.form-label {
+  @apply block text-sm font-medium text-gray-700 dark:text-gray-300;
+}
+
+.form-input {
+  @apply block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white;
+}
+
+.form-input.error {
+  @apply border-red-300 dark:border-red-600 text-red-900 dark:text-red-100 placeholder-red-300 dark:placeholder-red-400 focus:ring-red-500 focus:border-red-500;
+}
+
+.form-error {
+  @apply text-sm text-red-600 dark:text-red-400;
+}
+
+.form-help {
+  @apply text-sm text-gray-500 dark:text-gray-400;
+}
+
+/* Table styles */
+.data-table {
+  @apply min-w-full divide-y divide-gray-200 dark:divide-gray-700 bg-white dark:bg-gray-800;
+}
+
+.data-table th {
+  @apply px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider bg-gray-50 dark:bg-gray-800;
+}
+
+.data-table td {
+  @apply px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100;
+}
+
+.data-table tbody tr {
+  @apply bg-white dark:bg-gray-800;
+}
+
+.data-table tbody tr:hover {
+  @apply bg-gray-50 dark:bg-gray-700;
+}
+
+.data-table tbody tr:nth-child(even) {
+  @apply bg-gray-50 dark:bg-gray-900/50;
+}
+
+/* Badge styles */
+.badge {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+}
+
+.badge.primary {
+  @apply bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300;
+}
+
+.badge.success {
+  @apply bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300;
+}
+
+.badge.warning {
+  @apply bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300;
+}
+
+.badge.danger {
+  @apply bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300;
+}
+
+.badge.info {
+  @apply bg-cyan-100 text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-300;
+}
+
+.badge.default {
+  @apply bg-gray-100 text-gray-800 dark:bg-gray-900/30 dark:text-gray-300;
+}
+
+/* Avatar styles */
+.avatar {
+  @apply inline-flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 font-medium overflow-hidden aspect-square flex-shrink-0;
+}
+
+.avatar img {
+  @apply rounded-full object-cover w-full h-full;
+}
+
+.avatar-container {
+  @apply relative inline-block;
+}
+
+.avatar-badge {
+  @apply absolute -top-1 -right-1 flex items-center justify-center bg-red-500 text-white rounded-full min-w-[1.25rem] h-5 text-xs font-bold border-2 border-white dark:border-gray-800;
+  aspect-ratio: 1;
+}
+
+.avatar-badge.large {
+  @apply -top-2 -right-2 min-w-[1.5rem] h-6 text-sm;
+}
+
+.badge-circle {
+  @apply aspect-square flex items-center justify-center rounded-full font-bold;
+  min-width: auto !important;
+}
+
+.avatar-status {
+  @apply absolute bottom-0 right-0 w-4 h-4 bg-green-400 rounded-full border-2 border-white dark:border-gray-800;
+}
+
+.avatar-status.offline {
+  @apply bg-gray-400;
+}
+
+.avatar-status.away {
+  @apply bg-yellow-400;
+}
+
+.avatar-status.busy {
+  @apply bg-red-400;
+}
+
+/* Sidebar styles */
+.sidebar-nav-item {
+  @apply flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors;
+}
+
+.sidebar-nav-item.active {
+  @apply bg-blue-100 text-blue-700 dark:bg-blue-900/50 dark:text-blue-200;
+}
+
+.sidebar-nav-item:not(.active) {
+  @apply text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700;
+}
+
+.sidebar-nav-item .nav-icon {
+  @apply text-gray-500 dark:text-gray-400;
+}
+
+.sidebar-nav-item.active .nav-icon {
+  @apply text-blue-600 dark:text-blue-400;
+}
+
+/* Timeline styles */
+.timeline-item {
+  @apply relative pb-8;
+}
+
+.timeline-item::before {
+  content: '';
+  @apply absolute top-4 left-4 -ml-px h-full w-0.5 bg-gray-200 dark:bg-gray-700;
+}
+
+.timeline-item:last-child::before {
+  @apply hidden;
+}
+
+.timeline-icon {
+  @apply relative bg-white dark:bg-gray-800 rounded-full p-2 border-2 border-gray-300 dark:border-gray-600;
+}
+
+.timeline-content {
+  @apply text-sm text-gray-900 dark:text-white;
+}
+
+.timeline-meta {
+  @apply text-xs text-gray-500 dark:text-gray-400;
+}
+
+/* Chart container styles */
+.chart-container {
+  @apply relative w-full bg-white dark:bg-gray-800;
+}
+
+.chart-container canvas {
+  @apply max-w-full h-auto;
+}
+
+.chart-title {
+  @apply text-lg font-semibold text-gray-900 dark:text-white mb-4;
+}
+
+.chart-legend {
+  @apply text-sm text-gray-600 dark:text-gray-300;
+}
+
+/* Drag and drop styles */
+.drag-over {
+  @apply bg-blue-50 dark:bg-blue-900/30 ring-2 ring-blue-200 dark:ring-blue-700;
+}
+
+.dragging {
+  @apply opacity-50 transform rotate-2 scale-105;
+}
+
+/* Status indicator styles */
+.status-dot {
+  @apply inline-flex h-2 w-2 rounded-full;
+}
+
+.status-dot.online {
+  @apply bg-green-400;
+}
+
+.status-dot.offline {
+  @apply bg-gray-400 dark:bg-gray-600;
+}
+
+.status-dot.away {
+  @apply bg-yellow-400;
+}
+
+.status-dot.busy {
+  @apply bg-red-400;
+}
+
+/* Progress bar styles */
+.progress-bar {
+  @apply w-full bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden;
+}
+
+.progress-bar-fill {
+  @apply h-full bg-blue-600 dark:bg-blue-500 transition-all duration-300 ease-out;
+}
+
+.progress-bar-text {
+  @apply text-xs font-medium text-gray-700 dark:text-gray-300;
+}
+
+/* Custom checkbox/radio styles */
+.custom-checkbox {
+  @apply h-4 w-4 rounded border-gray-300 dark:border-gray-600 text-blue-600 focus:ring-blue-500 focus:ring-offset-0 dark:bg-gray-700;
+}
+
+.custom-radio {
+  @apply h-4 w-4 border-gray-300 dark:border-gray-600 text-blue-600 focus:ring-blue-500 focus:ring-offset-0 dark:bg-gray-700;
+}
+
+/* File upload styles */
+.file-upload-zone {
+  @apply border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-6 text-center hover:border-gray-400 dark:hover:border-gray-500 transition-colors cursor-pointer bg-gray-50 dark:bg-gray-800;
+}
+
+.file-upload-zone.drag-over {
+  @apply border-blue-400 bg-blue-50 dark:bg-blue-900/30;
+}
+
+.file-upload-text {
+  @apply text-sm text-gray-600 dark:text-gray-300;
+}
+
+.file-upload-hint {
+  @apply text-xs text-gray-500 dark:text-gray-400;
+}
+
+/* Code block styles */
+.code-block {
+  @apply bg-gray-100 dark:bg-gray-800 rounded-md p-4 font-mono text-sm overflow-x-auto text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-700;
+}
+
+/* Card enhancements */
+.card-header {
+  @apply border-b border-gray-200 dark:border-gray-700 pb-4 mb-4;
+}
+
+.card-title {
+  @apply text-lg font-semibold text-gray-900 dark:text-white;
+}
+
+.card-subtitle {
+  @apply text-sm text-gray-600 dark:text-gray-300 mt-1;
+}
+
+.card-content {
+  @apply text-gray-700 dark:text-gray-200;
+}
+
+.card-footer {
+  @apply border-t border-gray-200 dark:border-gray-700 pt-4 mt-4;
+}
+
+/* Activity feed styles */
+.activity-item {
+  @apply flex items-start space-x-3 p-4 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors;
+}
+
+.activity-content {
+  @apply flex-1 min-w-0;
+}
+
+.activity-title {
+  @apply text-sm font-medium text-gray-900 dark:text-white;
+}
+
+.activity-description {
+  @apply text-sm text-gray-600 dark:text-gray-300;
+}
+
+.activity-time {
+  @apply text-xs text-gray-500 dark:text-gray-400;
+}
+
+/* Responsive utilities */
+@media (max-width: 640px) {
+  .mobile-hidden {
+    @apply hidden;
+  }
+  
+  .mobile-full-width {
+    @apply w-full;
+  }
+  
+  .mobile-text-sm {
+    @apply text-sm;
+  }
+}
+
+/* Animation for route transitions */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-transition-exit {
+  opacity: 1;
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* Enhanced focus states */
+.focus-visible-ring {
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-800;
+}
+
+/* Text selection */
+::selection {
+  @apply bg-blue-200 dark:bg-blue-800 text-gray-900 dark:text-white;
+}
+
+/* Scrollbar for specific containers */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(156 163 175) transparent;
+}
+
+.dark .custom-scrollbar {
+  scrollbar-color: rgb(75 85 99) transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-gray-400 dark:bg-gray-600 rounded-full;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-500 dark:bg-gray-500;
+}
+
+/* Force all cards to have proper dark mode */
+.card, 
+[class*="bg-white"] {
+  @apply bg-white dark:bg-gray-800 !important;
+}
+
+/* Ensure card content is readable */
+.card h1, .card h2, .card h3, .card h4, .card h5, .card h6 {
+  @apply text-gray-900 dark:text-white;
+}
+
+.card p {
+  @apply text-gray-600 dark:text-gray-300;
+}
+
+/* Fix any remaining white backgrounds */
+.dashboard-stat-card,
+.chart-container,
+.activity-container {
+  @apply bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 !important;
+}
+
+
